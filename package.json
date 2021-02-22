@@ -1,6 +1,6 @@
 {
-  "name": "mirador-integration",
-  "version": "0.0.0",
+  "name": "mirador-integration-omeka",
+  "version": "0.0.1",
   "description": "",
   "private": true,
   "scripts": {
