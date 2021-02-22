@@ -6,6 +6,7 @@
   "scripts": {
     "parcel": "parcel parcel/index.html",
     "webpack": "webpack --config webpack/webpack.config.js",
+    "webpack-usual": "webpack --config webpack/webpack-usual.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
