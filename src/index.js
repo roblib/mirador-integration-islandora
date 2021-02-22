@@ -1,22 +1,17 @@
-import Mirador from 'mirador/dist/es/src/index';
+import Mirador from "mirador";
+
 import { miradorImageToolsPlugin } from 'mirador-image-tools';
+import miradorImageDl from 'mirador-dl-plugin';
+// import miradorRuler from 'mirador-ruler-plugin';
+import miradorShare from 'mirador-share-plugin';
+import miradorTextOverlay from 'mirador-textoverlay';
 
-const config = {
-  id: 'demo',
-  windows: [{
-    imageToolsEnabled: true,
-    imageToolsOpen: true,
-    manifestId: 'https://purl.stanford.edu/sn904cj3429/iiif/manifest',
-  }],
-  theme: {
-    palette: {
-      primary: {
-        main: '#1967d2',
-      },
-    },
-  },
-};
+window.Mirador = Mirador;
 
-Mirador.viewer(config, [
-  ...miradorImageToolsPlugin,
-]);
+window.miradorPlugins = [
+  {name: "image-tools", plugin: miradorImageToolsPlugin},
+  {name: "dl", plugin: miradorImageDl},
+  // {name: "ruler" , plugin: miradorRuler},
+  {name: "share" , plugin: miradorShare},
+  {name: "textoverlay", plugin: miradorTextOverlay},
+];
