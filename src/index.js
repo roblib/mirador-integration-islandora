@@ -1,12 +1,12 @@
 import Mirador from "mirador";
 
-// For annotations and storage adapters.
-// Only local storage is managed automatically here.
+// For annotations and storage adapters. Only one is useful.
 // see https://github.com/ProjectMirador/mirador-annotations/blob/master/demo/src/index.js
 import miradorAnnotationPlugins from 'mirador-annotations';
 import miradorLocalStorageAdapter from 'mirador-annotations/lib/LocalStorageAdapter';
-// import miradorAnnototAdapter from 'mirador-annotations/lib/AnnototAdapter';'
+import miradorAnnototAdapter from 'mirador-annotations/lib/AnnototAdapter';
 
+// Usual or light plugins.
 import { miradorImageToolsPlugin } from 'mirador-image-tools';
 import miradorImageDl from 'mirador-dl-plugin';
 // import miradorRuler from 'mirador-ruler-plugin';
@@ -15,6 +15,7 @@ import miradorTextOverlay from 'mirador-textoverlay';
 
 window.Mirador = Mirador;
 
+// The used plugins is specified in the main js.
 window.miradorPlugins = [
   {name: "annotations", plugin: miradorAnnotationPlugins},
   {name: "image-tools", plugin: miradorImageToolsPlugin},
@@ -24,11 +25,14 @@ window.miradorPlugins = [
   {name: "textoverlay", plugin: miradorTextOverlay},
 ];
 
-// Endpoint of the external annotations.
-// const endpointUrl = 'http://127.0.0.1:3000/annotations';
+// The endpoint of the external annotation server is set in the main js.
+// const annotationEndpoint = 'http://127.0.0.1:3000/annotations';
 
 // Bridge to store annotations.
-window.miradorAnnotationServerAdapter = function (canvasId) {
-    return new miradorLocalStorageAdapter(`localStorage://?canvasId=${canvasId}`);
-//     return new AnnototAdapter(canvasId, endpointUrl);
-};
+window.miradorAnnotationServerAdapter = typeof annotationEndpoint !== 'undefined' && annotationEndpoint
+    ? function (canvasId, annotationEndpoint) {
+        return new AnnototAdapter(canvasId, annotationEndpoint)
+    }
+    : function (canvasId) {
+        return new miradorLocalStorageAdapter(`localStorage://?canvasId=${canvasId}`);
+    };
