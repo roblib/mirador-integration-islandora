@@ -1,3 +1,13 @@
+## Islandora Additions
+
+This is a fork of the demonstration project at https://github.com/ProjectMirador/mirador-integration. This project adapts the 
+code to work within [Drupal](https://drupal.org/) for the [Islandora](https://github.com/islandora/documentation).
+
+The main differences are 
+
+1. Adding a few more plugins, and
+2. Invoking Mirador is done in the islandora_mirador Drupal module.
+
 ## Integrating Mirador
 
 This repository is designed to show integrating Mirador 3 with modern frontend build systems.
