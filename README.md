@@ -1,7 +1,7 @@
 ## Islandora Additions
 
 This is a fork of the demonstration project at https://github.com/ProjectMirador/mirador-integration. This project adapts the 
-code to work within [Drupal](https://drupal.org/) for the [Islandora](https://github.com/islandora/documentation).
+code to work within [Drupal](https://drupal.org/) for the [Islandora](https://github.com/islandora/documentation) project.
 
 The main differences are 
 
