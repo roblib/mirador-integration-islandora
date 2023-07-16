@@ -1,9 +1,9 @@
 ## Islandora Additions
 
-This is a fork of the demonstration project at https://github.com/ProjectMirador/mirador-integration. This project adapts the 
+This is a fork of the demonstration project at https://github.com/ProjectMirador/mirador-integration. This project adapts the
 code to work within [Drupal](https://drupal.org/) for the [Islandora](https://github.com/islandora/documentation) project.
 
-The main differences are 
+The main differences are
 
 1. Adding a few more plugins, and
 2. Invoking Mirador is done in the islandora_mirador Drupal module.
@@ -14,14 +14,16 @@ This repository is designed to show integrating Mirador 3 with modern frontend b
 
 ### Dependencies
 
-You will likely need to have at least the following dependencies available in your `package.json`.
+The dependencies are listed in package.json.
 
- - `mirador`
- - `react`
- - `react-dom`
- - `mirador-image-tools` - A plugin just to test plugin integration
+TO install them, run:
 
+```sh
+npm install
+``````
 ### Webpack
+
+Webpack is used to build the app for use by Islandora
 
 See `./webpack` for a basic webpack setup for Mirador 3 + a plugin.
 
@@ -29,10 +31,6 @@ See `./webpack` for a basic webpack setup for Mirador 3 + a plugin.
 npm run webpack
 ```
 
-### Parcel
+The output folder webpack/dist should now contain a file main.js which you can place in your drupal installation under [webroot]/libraries/mirador/dist.
 
-See `./parcel`, but essentially it is just an html file referencing the JavaScript.
-
-```sh
-npm run parcel
-```
+You can then go to /admin/config/media/mirador and set it to use the local version after clearing your site's cache.
