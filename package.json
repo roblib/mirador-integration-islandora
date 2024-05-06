@@ -14,6 +14,7 @@
     "css-loader": "^3.6.0",
     "parcel-bundler": "^1.12.4",
     "mirador": "^3.0.0",
+    "mirador-dl-plugin": "^0.13.0",
     "mirador-image-tools": "^0.11.0",
     "mirador-textoverlay": "^0.3.7",
     "react": "^16.13.1",
